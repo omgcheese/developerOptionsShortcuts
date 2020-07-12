@@ -9,5 +9,5 @@
     <string name="error_code_setup_required_title">Before using this app</string>
     <string name="error_code_setup_required_body">Go through readme.md from the Github source. Looks like permission is not granted</string>
     <string name="error_code_api_incompat_title">Something went wrong</string>
-    <string name="error_code_api_incompat_body">Looks like this device is not compatible. (Possibly custom ROM or modified Activity Manager class(</string>
+    <string name="error_code_api_incompat_body">Looks like this device is not compatible. (Possibly custom ROM or modified Activity Manager class)</string>
 </resources>
