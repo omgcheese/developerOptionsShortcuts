@@ -15,7 +15,6 @@ import org.junit.Assert.assertNull
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
-import java.lang.Exception
 
 class DeveloperOptionViewModelTest {
 
@@ -42,7 +41,10 @@ class DeveloperOptionViewModelTest {
 
         viewModel!!.onResume()
 
-        assertEquals(viewModel!!.dontKeepActivityStatus.value, DontKeepActivitiesSource(false, true) )
+        assertEquals(
+            viewModel!!.dontKeepActivityStatus.value,
+            DontKeepActivitiesSource(false, true)
+        )
         verify(exactly = 1) { dontKeepActivitiesController.addStatusListener(any()) }
     }
 
@@ -53,7 +55,10 @@ class DeveloperOptionViewModelTest {
 
         viewModel!!.onResume()
 
-        assertEquals(viewModel!!.dontKeepActivityStatus.value, DontKeepActivitiesSource(false, false) )
+        assertEquals(
+            viewModel!!.dontKeepActivityStatus.value,
+            DontKeepActivitiesSource(false, false)
+        )
         verify(exactly = 1) { dontKeepActivitiesController.addStatusListener(any()) }
     }
 

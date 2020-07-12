@@ -10,7 +10,10 @@ fun <T> LiveData<T>.bind(owner: LifecycleOwner, observer: (T) -> Unit) {
 }
 
 fun <T> LiveData<Event<T>>.bindEvent(owner: LifecycleOwner, observer: (T) -> Unit) {
-    this.observe(owner, Observer {
-        it.unhandledContent?.let {  storedValue -> observer.invoke(storedValue) }
-    })
+    this.observe(
+        owner,
+        Observer {
+            it.unhandledContent?.let { storedValue -> observer.invoke(storedValue) }
+        }
+    )
 }
