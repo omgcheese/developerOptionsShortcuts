@@ -28,9 +28,9 @@
         </activity>
 
         <service
-            android:name=".service.ShortcutService"
+            android:name=".service.DontKeepActivityTileService"
             android:icon="@drawable/ic_baseline_block_24"
-            android:label="DKA"
+            android:label="@string/app_name"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
             <intent-filter>
                 <action android:name="android.service.quicksettings.action.QS_TILE" />
