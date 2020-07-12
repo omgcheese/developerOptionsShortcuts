@@ -53,7 +53,6 @@ class DeveloperOptionViewModel(
     }
 
     private fun retrieveStatusForSettings(fromListener: Boolean) {
-        _developerOptionError.value = ErrorCode.API_INCOMPATIBLE.asEvent()
         val isStatusSet = dontKeepActivitiesController.isSet
         _dontKeepActivityStatus.value = DontKeepActivitiesSource(fromListener, isStatusSet)
     }
