@@ -2,8 +2,10 @@ package com.cheesycoder.developeroptionshortcut
 
 import android.os.Bundle
 import android.widget.CompoundButton
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.cheesycoder.developeroptionshortcut.common.bind
+import com.cheesycoder.developeroptionshortcut.common.bindEvent
 import com.cheesycoder.developeroptionshortcut.viewmodel.DeveloperOptionViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -42,6 +44,14 @@ class MainActivity : AppCompatActivity() {
             if (it.fromListener) {
                 setViewListeners()
             }
+        }
+        viewModel.developerOptionError.bindEvent(this) {
+            val dialogContent = it.toDialogContents()
+            AlertDialog.Builder(this, R.style.AppTheme_ErrorDialog).apply {
+                setTitle(dialogContent.first)
+                setMessage(dialogContent.second)
+                setPositiveButton(R.string.error_alert_neutral_btn, null)
+            }.show()
         }
     }
 

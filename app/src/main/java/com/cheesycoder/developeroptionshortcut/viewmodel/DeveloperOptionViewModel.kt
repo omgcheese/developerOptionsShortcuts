@@ -10,6 +10,8 @@ import androidx.lifecycle.OnLifecycleEvent
 import androidx.lifecycle.ViewModel
 import com.cheesycoder.developeroptionshortcut.controller.DontKeepActivitiesController
 import com.cheesycoder.developeroptionshortcut.model.DontKeepActivitiesSource
+import com.cheesycoder.developeroptionshortcut.model.ErrorCode
+import com.cheesycoder.developeroptionshortcut.model.Event
 
 class DeveloperOptionViewModel(
     private val dontKeepActivitiesController: DontKeepActivitiesController
@@ -17,8 +19,11 @@ class DeveloperOptionViewModel(
 
     val dontKeepActivityStatus: LiveData<DontKeepActivitiesSource>
         get() = _dontKeepActivityStatus
+    val developerOptionError: LiveData<Event<ErrorCode>>
+        get() = _developerOptionError
 
     private val _dontKeepActivityStatus = MutableLiveData<DontKeepActivitiesSource>()
+    private val _developerOptionError = MutableLiveData<Event<ErrorCode>>()
 
     private val contentObserver = object : ContentObserver(Handler()) {
         override fun onChange(selfChange: Boolean) {
@@ -41,11 +46,14 @@ class DeveloperOptionViewModel(
         try {
             dontKeepActivitiesController.isSet = newValue
         } catch (exception: SecurityException) {
+            _developerOptionError.value = ErrorCode.SETUP_REQUIRED.asEvent()
         } catch (exception: ClassNotFoundException) {
+            _developerOptionError.value = ErrorCode.API_INCOMPATIBLE.asEvent()
         }
     }
 
     private fun retrieveStatusForSettings(fromListener: Boolean) {
+        _developerOptionError.value = ErrorCode.API_INCOMPATIBLE.asEvent()
         val isStatusSet = dontKeepActivitiesController.isSet
         _dontKeepActivityStatus.value = DontKeepActivitiesSource(fromListener, isStatusSet)
     }
