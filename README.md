@@ -1,5 +1,6 @@
 # Developer Option Quick Setting Tiles
 [![ktlint](https://img.shields.io/badge/code%20style-%E2%9D%A4-FF4081.svg)](https://ktlint.github.io/)
+
 Quick setting app that allows developer to quickly change developer options without going into the Developer Option menu.
 
 ## Available Quick
