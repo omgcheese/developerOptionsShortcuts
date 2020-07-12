@@ -32,3 +32,6 @@ adb shell pm grant com.cheesycoder.developeroptionshortcut android.permission.SE
 These permissions lets this app to access developer options without being system applications.
 
 You can now add quick setting tile by pulling down the quick setting menu and add developer option tiles.
+
+## License
+[MIT](https://raw.githubusercontent.com/omgcheese/developerOptionsShortcuts/master/LICENSE)
