@@ -1,6 +1,6 @@
 package com.cheesycoder.developeroptionshortcut.model
 
-class Event<T>(
+data class Event<T>(
     private val content: T
 ) {
     var hasBeenHandled = false

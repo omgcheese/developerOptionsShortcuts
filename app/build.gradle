@@ -44,6 +44,9 @@ dependencies {
     implementation "org.koin:koin-androidx-viewmodel:$koin_version"
 
     ktlint "com.pinterest:ktlint:0.37.2"
+
+    testImplementation "io.mockk:mockk:1.10.0"
+    testImplementation 'android.arch.core:core-testing:1.1.1'
 }
 
 task ktlint(type: JavaExec, group: "verification") {

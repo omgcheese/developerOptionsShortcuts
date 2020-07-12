@@ -27,7 +27,7 @@ class DeveloperOptionViewModel(
 
     private val contentObserver = object : ContentObserver(Handler()) {
         override fun onChange(selfChange: Boolean) {
-            if (!selfChange) retrieveStatusForSettings(true)
+            retrieveStatusForSettings(true)
         }
     }
 
