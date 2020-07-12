@@ -2,7 +2,12 @@ package com.cheesycoder.developeroptionshortcut.viewmodel
 
 import android.database.ContentObserver
 import android.os.Handler
-import androidx.lifecycle.*
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleObserver
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.OnLifecycleEvent
+import androidx.lifecycle.ViewModel
 import com.cheesycoder.developeroptionshortcut.controller.DontKeepActivitiesController
 import com.cheesycoder.developeroptionshortcut.model.DontKeepActivitiesSource
 

@@ -2,7 +2,6 @@ package com.cheesycoder.developeroptionshortcut.service
 
 import android.database.ContentObserver
 import android.os.Handler
-import android.provider.Settings
 import android.service.quicksettings.Tile
 import android.service.quicksettings.TileService
 import com.cheesycoder.developeroptionshortcut.R
