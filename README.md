@@ -9,6 +9,7 @@ Quick setting app that allows developer to quickly change developer options with
 ## Prerequisite
 * ADB (recommended)
 * Rooted Device
+* Developer Options should be enabled for your device
 
 ### ADB
 ADB should be available when you install Android Studio (Requires modify bash_profile) or you can use homebrew to get ADB
