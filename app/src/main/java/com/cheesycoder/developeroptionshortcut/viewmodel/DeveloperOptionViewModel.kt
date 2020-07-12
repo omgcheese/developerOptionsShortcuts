@@ -41,9 +41,7 @@ class DeveloperOptionViewModel(
         try {
             dontKeepActivitiesController.isSet = newValue
         } catch (exception: SecurityException) {
-
         } catch (exception: ClassNotFoundException) {
-
         }
     }
 
