@@ -5,6 +5,10 @@
     <string name="dont_keep_activities_tile">Not Keeping Activities</string>
     <string name="keep_activities_tile">Keeping Activities</string>
 
+    <string name="dont_keep_activities_main_title">Are you here to switch flag for \nDon\'t Keep Activities?</string>
+    <string name="dont_keep_activities_main_body">You can use Quick Setting to toggle the flag at your will!\n Pull down the quick setting menu and add "Don\'t Keep Activity" Tile</string>
+    <string name="dont_keep_activities_alternative_body">…or you can set the flag here. I guess… 😒</string>
+
     <string name="error_alert_neutral_btn">Okay</string>
     <string name="error_code_setup_required_title">Before using this app</string>
     <string name="error_code_setup_required_body">Go through readme.md from the Github source. Looks like permission is not granted</string>

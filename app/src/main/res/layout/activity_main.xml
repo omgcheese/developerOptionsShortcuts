@@ -7,18 +7,56 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/dont_keep_activity_textview"
+        android:id="@+id/dont_keep_activity_title_textview"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Don't keep activity"
+        android:gravity="center"
+        android:text="@string/dont_keep_activities_main_title"
+        android:layout_margin="16dp"
+        style="@style/TextAppearance.AppCompat.Headline"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.35"/>
+
+    <TextView
+        android:id="@+id/dont_keep_activity_body_textview"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/dont_keep_activities_main_body"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        style="@style/TextAppearance.AppCompat.Body1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dont_keep_activity_title_textview"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/dont_keep_activity_alternative_textview"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/dont_keep_activities_alternative_body"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        style="@style/TextAppearance.AppCompat.Body1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dont_keep_activity_body_textview"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <Switch
         android:id="@+id/dont_keep_activity_switch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/dont_keep_activity_textview" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dont_keep_activity_alternative_textview" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
