@@ -8,10 +8,6 @@
         tools:ignore="ProtectedPermissions" />
 
     <uses-permission
-        android:name="android.permission.DUMP"
-        tools:ignore="ProtectedPermissions" />
-
-    <uses-permission
         android:name="android.permission.SET_ALWAYS_FINISH"
         tools:ignore="ProtectedPermissions" />
 
