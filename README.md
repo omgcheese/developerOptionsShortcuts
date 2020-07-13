@@ -15,7 +15,7 @@ Quick setting app that allows developer to quickly change developer options with
 ADB should be available when you install Android Studio (Requires modify bash_profile) or you can use homebrew to get ADB
 
 ### Rooted Device
-You should have SU permission which allows you to bypass [Installation](#Installation step)
+You should have SU permission which allows you to bypass [Installation](#Installation) step
 
 ## Installation
 First, clone this repo and install the app.
