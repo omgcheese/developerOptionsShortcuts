@@ -14,6 +14,7 @@ import com.cheesycoder.developeroptionshortcut.model.ErrorCode
 import com.cheesycoder.developeroptionshortcut.model.Event
 import java.lang.Exception
 import java.lang.RuntimeException
+import java.lang.reflect.InvocationTargetException
 
 class DeveloperOptionViewModel(
     private val dontKeepActivitiesController: DontKeepActivitiesController
@@ -54,7 +55,7 @@ class DeveloperOptionViewModel(
         } catch (exception: ClassNotFoundException) {
             _developerOptionError.value = ErrorCode.API_INCOMPATIBLE.asEvent()
             isExceptionRaised = true
-        } catch (otherException: Exception) {
+        } catch (otherException: InvocationTargetException) {
             _developerOptionError.value = ErrorCode.SETUP_MAY_REQUIRED.asEvent()
             isExceptionRaised = true
         } finally {
