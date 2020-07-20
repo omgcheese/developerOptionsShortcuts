@@ -4,9 +4,12 @@ import android.database.ContentObserver
 import android.os.Handler
 import android.service.quicksettings.Tile
 import android.service.quicksettings.TileService
+import android.widget.Toast
 import com.cheesycoder.developeroptionshortcut.R
 import com.cheesycoder.developeroptionshortcut.controller.DontKeepActivitiesController
+import com.cheesycoder.developeroptionshortcut.model.ErrorCode
 import org.koin.android.ext.android.inject
+import java.lang.reflect.InvocationTargetException
 
 class DontKeepActivityTileService : TileService() {
 
@@ -33,7 +36,17 @@ class DontKeepActivityTileService : TileService() {
 
     override fun onClick() {
         val isStatusSet = dontKeepActivitiesController.isSet
-        dontKeepActivitiesController.isSet = !isStatusSet
+        val errorResId = try {
+            dontKeepActivitiesController.isSet = !isStatusSet
+            null
+        } catch (exception: SecurityException) {
+            ErrorCode.SETUP_REQUIRED.toToastMessageContent()
+        } catch (exception: ClassNotFoundException) {
+            ErrorCode.API_INCOMPATIBLE.toToastMessageContent()
+        } catch (otherException: InvocationTargetException) {
+            ErrorCode.SETUP_MAY_REQUIRED.toToastMessageContent()
+        }
+        errorResId?.let { Toast.makeText(applicationContext, it, Toast.LENGTH_LONG).show() }
     }
 
     private fun updateTile() {
