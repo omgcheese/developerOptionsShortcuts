@@ -12,6 +12,8 @@ import com.cheesycoder.developeroptionshortcut.controller.DontKeepActivitiesCont
 import com.cheesycoder.developeroptionshortcut.model.DontKeepActivitiesSource
 import com.cheesycoder.developeroptionshortcut.model.ErrorCode
 import com.cheesycoder.developeroptionshortcut.model.Event
+import java.lang.Exception
+import java.lang.RuntimeException
 
 class DeveloperOptionViewModel(
     private val dontKeepActivitiesController: DontKeepActivitiesController
@@ -43,12 +45,22 @@ class DeveloperOptionViewModel(
     }
 
     fun dontKeepActivities(newValue: Boolean) {
+        var isExceptionRaised = false
         try {
             dontKeepActivitiesController.isSet = newValue
         } catch (exception: SecurityException) {
             _developerOptionError.value = ErrorCode.SETUP_REQUIRED.asEvent()
+            isExceptionRaised = true
         } catch (exception: ClassNotFoundException) {
             _developerOptionError.value = ErrorCode.API_INCOMPATIBLE.asEvent()
+            isExceptionRaised = true
+        } catch (otherException: Exception) {
+            _developerOptionError.value = ErrorCode.SETUP_MAY_REQUIRED.asEvent()
+            isExceptionRaised = true
+        } finally {
+            if (isExceptionRaised) {
+                _dontKeepActivityStatus.value = DontKeepActivitiesSource(true, !newValue)
+            }
         }
     }
 

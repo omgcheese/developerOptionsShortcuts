@@ -14,10 +14,6 @@ class MainActivity : AppCompatActivity() {
 
     private val viewModel by viewModel<DeveloperOptionViewModel>()
 
-    private val checkedChangeListener = CompoundButton.OnCheckedChangeListener { _, isChecked ->
-        viewModel.dontKeepActivities(isChecked)
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -37,11 +33,11 @@ class MainActivity : AppCompatActivity() {
 
     private fun bindViewModel() {
         viewModel.dontKeepActivityStatus.bind(this) {
-            if (it.fromListener) {
+            if (it.disableListener) {
                 removeViewListeners()
             }
             dont_keep_activity_switch.isChecked = it.isChecked
-            if (it.fromListener) {
+            if (it.disableListener) {
                 setViewListeners()
             }
         }
@@ -56,7 +52,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setViewListeners() {
-        dont_keep_activity_switch.setOnCheckedChangeListener(checkedChangeListener)
+        dont_keep_activity_switch.setOnCheckedChangeListener { _, isChecked ->
+            viewModel.dontKeepActivities(isChecked)
+        }
     }
 
     private fun removeViewListeners() {
